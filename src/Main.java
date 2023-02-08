@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Scanner;
@@ -27,14 +28,89 @@ public class Main {
         Week weekOf012323 = new Week("01/23/23");
         weekOf012323.addDate(dateOf012623);
         weekOf012323.addDate(dateOf012723);
-        System.out.println(weekOf012323);
 
         //what I've got so far: Class Week which contains an Array of Dates which contain arrays of Trade objects with various
-        // contract fields which I've limited input as much as I know how.
+        // contract fields which I've limited input as much as I know how. I have an interator where I code in the trading week
+        // and can cycle through the trades taken on that day en masse but not individually.
 
-        //What I've gotta do: Create an iterator to flip through and display individual trade information with a chart...
-        //will likely want to do scanner and factory method for this later
+        //What I've gotta do: Add another dimension to the iterator to flip through individual trades once a date selected.
+        // have scanner input for selecting a week of a trade
+        //scanner for fatory method generation of trade details for Trade object.
+        //could create one more array dimension: Year --> week --> date --> trade. Object of Trade 3 deep in arrays
 
+
+        reviewTrades(weekOf012323);
+    }
+
+    private static void reviewTrades(Week inputWeek) {
+        printMenu();
+        System.out.println("");
+        Scanner scanner = new Scanner(System.in);
+        boolean quit = false;
+        boolean forward = true;
+        ArrayList<Date> localList = inputWeek.getWeeklyTrades();
+        ListIterator<Date> listIterator = localList.listIterator();
+        if (localList.size() == 0) {
+            System.out.println("No trades in list");
+            return;
+        }
+//        else {
+//            System.out.printf("Now displaying trades from first trading date of the week: \n\t" + );
+//        }
+
+        while (!quit) {
+            int action = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (action) {
+                case 0:
+                    System.out.println("Quitting trade review");
+                    quit = true;
+                    break;
+                case 1:
+                    listIterator.toString();
+
+                case 2:
+                    if (!forward) {
+                        if (listIterator.hasNext()) {
+                            listIterator.next();
+                        }
+                        forward = true;
+                    }
+                    if (listIterator.hasNext()) {
+                        System.out.println("Now displaying next trade" + listIterator.next().toString());
+                    } else {
+                        System.out.println("No other trades in list");
+                    }
+                    break;
+
+                case 3:
+                    if (forward) {
+                        if (listIterator.hasPrevious()) {
+                            listIterator.previous();
+                        }
+                        forward = false;
+                    }
+                    if (listIterator.hasPrevious()) {
+                        System.out.println("Now displaying previous trade " + listIterator.previous().toString());
+                    } else {
+                        System.out.println("We are at the start of the playlist");
+                    }
+                    break;
+                case 4:
+                    System.out.println(inputWeek);
+                    break;
+                case 5:
+                    printMenu();
+                    break;
+
+            }
+        }
+    }
+
+    public static void printMenu() {
+        System.out.println("enter 0 to quit, 1 to display first trade, 2 to display next trade, 3 to display previous trade, " +
+                "4 to display the weekly trades, 5 to display menu");
     }
 
 

@@ -40,4 +40,7 @@ public class Week {
         else System.out.println("can only have 5 trading days in a week");
     }
 
+    public ArrayList<Date> getWeeklyTrades() {
+        return weeklyTrades;
+    }
 }
