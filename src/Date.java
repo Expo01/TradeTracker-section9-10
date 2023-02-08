@@ -21,4 +21,6 @@ public class Date {
         this.tradesOnDate.add(addTrade);
     }
 
+
+
 }

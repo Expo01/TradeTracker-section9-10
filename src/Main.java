@@ -29,6 +29,7 @@ public class Main {
         weekOf012323.addDate(dateOf012623);
         weekOf012323.addDate(dateOf012723);
 
+
         //what I've got so far: Class Week which contains an Array of Dates which contain arrays of Trade objects with various
         // contract fields which I've limited input as much as I know how. I have an interator where I code in the trading week
         // and can cycle through the trades taken on that day en masse but not individually.
@@ -68,8 +69,10 @@ public class Main {
                     quit = true;
                     break;
                 case 1:
-                    listIterator.toString();
-
+                    System.out.println(" now displaying " + listIterator.next().toString());
+                    // for some reason, if I don't include a print statement with this, it ignores the .toString content
+                    // but if I try to print the listIterator.next.tostring, it errors.
+                    break;
                 case 2:
                     if (!forward) {
                         if (listIterator.hasNext()) {

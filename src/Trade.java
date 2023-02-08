@@ -74,3 +74,26 @@ public class Trade { //realistically, this could probably just be a record since
         }
     }
 }
+
+
+
+
+
+
+
+//temporary idea storage
+
+//                    if (inputWeek.getWeeklyTrades().listIterator().next().getTradesOnDate().size() > 1) {
+//                        System.out.println("more than 1 trade took place on this day");
+//                    }
+//                    (inputWeek.getWeeklyTrades().get(0).getTradesOnDate().size() > 1);
+//this is not working
+
+
+//                        if (inputWeek.getWeeklyTrades().listIterator().next().getTradesOnDate().size() > 1) {
+//                            System.out.println("more than 1 trade took place on this day");
+//                        } else {
+//                            System.out.println("contrary output reached and printed");
+//                        }
+//                        System.out.println("Now displaying next trade" + listIterator.next().toString());
+// this is not working either
